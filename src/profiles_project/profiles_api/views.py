@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -8,6 +9,21 @@ from . import serializers
 
 
 # Create your views here.
+
+class HellowViewSet(viewsets.ViewSet):
+    """Test API ViewSet."""
+
+    def list(sefl, requet):
+        """Return a hellow message."""
+
+        a_viewset = [
+            'uses action (list, create, retrieve, update, partial_update)',
+            'automatically maps to URLs URLs Routers',
+            'priveds more functionality with less code'
+        ]
+
+        return Response({'message': 'Hello!', 'a_viewset': a_viewset})
+
 
 class HelloApiView(APIView):
     """Test API View."""
