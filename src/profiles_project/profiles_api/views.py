@@ -6,9 +6,25 @@ from rest_framework.response import Response
 from rest_framework import status
 
 from . import serializers
-
+from . import models
 
 # Create your views here.
+
+# class UserProfileView(APIView):
+#     """Test API View."""
+#
+#     def get(self, request, format=None):
+#         serializer_class = serializers.UserProfileSerializer
+#         queryset = models.UserProfile.objects.all()
+#         return Response(queryset)
+
+
+class UserProfileViewSet(viewsets.ModelViewSet):
+    """Handles creating, creating and updating profiles"""
+
+    serializer_class = serializers.UserProfileSerializer
+    queryset = models.UserProfile.objects.all()
+
 
 class HellowViewSet(viewsets.ViewSet):
     """Test API ViewSet."""
